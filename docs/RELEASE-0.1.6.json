@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-26",
+  "versionName": "0.1.6",
+  "versionCode": 7,
+  "signatureVerified": true,
+  "sameCertificateAs015": true,
+  "certificateSha256": "56cb74ec48203d196163684ed3122fc76d58422017060c337d224ee42f08eaf8",
+  "zipAlignment16KbPassed": true,
+  "matchesCleanBuildPayload": true,
+  "payloadFilesCompared": 64,
+  "licensesAndPrivacyExactMatch": true,
+  "apkBytes": 42722066,
+  "apkSha256": "225661373420e94d1e082bfcae588f5e964372abfb1c779894e41e8cdc4bc77c",
+  "checks": {
+    "jvmTests": 45,
+    "pythonTests": 10,
+    "androidTests": 34,
+    "androidDevice": "Android15/API35 AOSP emulator without GMS",
+    "lintErrors": 0,
+    "lintWarnings": 13,
+    "physicalDeviceValidationComplete": false
+  }
+}

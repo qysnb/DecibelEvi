@@ -1,0 +1,19 @@
+import groovy.json.JsonOutput
+allprojects { project ->
+    afterEvaluate {
+        if (project.path == ':app') {
+            tasks.register('commercialLicenseInventory') {
+                doLast {
+                    def rows = configurations.getByName('releaseRuntimeClasspath').resolvedConfiguration.resolvedArtifacts.collect { a ->
+                        def m = a.moduleVersion.id
+                        [group:m.group, name:m.name, version:m.version, type:a.type, file:a.file.absolutePath]
+                    }.sort { a,b -> "${a.group}:${a.name}" <=> "${b.group}:${b.name}" }
+                    def output = new File(rootProject.projectDir, '.tools/commercial/runtime-artifacts.json')
+                    output.parentFile.mkdirs()
+                    output.text = JsonOutput.prettyPrint(JsonOutput.toJson(rows))
+                    println "COMMERCIAL_RUNTIME_ARTIFACTS=${rows.size()}"
+                }
+            }
+        }
+    }
+}
